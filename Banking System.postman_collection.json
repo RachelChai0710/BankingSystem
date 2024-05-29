@@ -1,0 +1,347 @@
+{
+	"info": {
+		"_postman_id": "fb53fb0d-13fe-49e4-a06c-01a438c6426b",
+		"name": "Banking System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34489635"
+	},
+	"item": [
+		{
+			"name": "Get All Customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cus/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cus",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cus/get/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cus",
+						"get",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "3",
+							"description": "Customer ID"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Customer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"James\",\r\n    \"age\": 24\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cus/upd/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cus",
+						"upd",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "3",
+							"description": "Customer ID"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"John Joe\",\r\n    \"age\": 50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cus/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cus",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Account By Customer ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/acc/get/:cusId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"acc",
+						"get",
+						":cusId"
+					],
+					"variable": [
+						{
+							"key": "cusId",
+							"value": "1",
+							"description": "Customer ID"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Balance Inquiry By Account ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/acc/balance_inq/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"acc",
+						"balance_inq",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1",
+							"description": "Account ID"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "/* //Saving Account Request\r\n{\r\n    \"cusId\": 1,\r\n    \"balance\": 500.00,\r\n    \"accT\": \"SAVING\" //\"SAVING\" or \"CREDIT\"\r\n}\r\n*/\r\n//Credit Account Request\r\n{\r\n    \"cusId\": 1,\r\n    \"accT\": \"CREDIT\", //\"SAVING\" or \"CREDIT\"\r\n    \"cardNo\": \"1234567814561234\",\r\n    \"creLim\":2000.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/acc/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"acc",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Transaction History by Account ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/txn/history/:accId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"txn",
+						"history",
+						":accId"
+					],
+					"variable": [
+						{
+							"key": "accId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit by Account ID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 20.00\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/txn/deposit/:accId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"txn",
+						"deposit",
+						":accId"
+					],
+					"variable": [
+						{
+							"key": "accId",
+							"value": "5",
+							"description": "Account ID"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdraw by Account ID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 45.00\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/txn/withdraw/:accId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"txn",
+						"withdraw",
+						":accId"
+					],
+					"variable": [
+						{
+							"key": "accId",
+							"value": "2",
+							"description": "Account ID"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transfer by Account ID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"toAcc\":2,\r\n    \"amount\": 10.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/txn/transfer/:accId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"txn",
+						"transfer",
+						":accId"
+					],
+					"variable": [
+						{
+							"key": "accId",
+							"value": "1",
+							"description": "Account ID"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
