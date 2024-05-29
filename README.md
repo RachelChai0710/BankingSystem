@@ -10,14 +10,14 @@ There are 2 main resources in this project:
 
 ## All available routes
 GET:
-- /acc/balance_inq/{id} (Balance Inquiry By Account ID)
-- /acc/get/{cusId} (Get Account By Customer ID)
-- /cus/getAll (Get All Customers)
-- /cus/get/{id} (Get Customer by ID)
-- /txn/history/{accId} (Get Transaction History by Account ID)
+- acc/balance_inq/{id} (Balance Inquiry By Account ID)
+- acc/get/{cusId} (Get Account By Customer ID)
+- cus/getAll (Get All Customers)
+- cus/get/{id} (Get Customer by ID)
+- txn/history/{accId} (Get Transaction History by Account ID)
 
 PUT:
-- /cus/upd/{id} (Update Customer Details by ID)
+- cus/upd/{id} (Update Customer Details by ID)
 
 POST:
 - acc/add (Add New Account)
@@ -45,15 +45,15 @@ Request Body for Add and Update Customer:
     "age": 24
 }
 ```
-- /txn/deposit/:accId (Deposit by Account ID)
-- /txn/withdraw/:accId (Withdraw by Account ID)
+- txn/deposit/:accId (Deposit by Account ID)
+- txn/withdraw/:accId (Withdraw by Account ID)
 Request Body for Deposit and Withdraw transaction:
 ```
 {
     "amount": 20.00
 }
 ```
-- /txn/transfer/:accId (Transfer by Account ID)
+- txn/transfer/:accId (Transfer by Account ID)
 Request Body for transfer transaction:
 ```
 {
