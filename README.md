@@ -36,6 +36,7 @@ Request Body for Add New Customer:
     "cardNo": "1234567814561234",
     "creLim":2000.00
 }
+```
 - cus/add (Add New Customer)
 Request Body for Add and Update Customer:
 ```
