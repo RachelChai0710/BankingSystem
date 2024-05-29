@@ -19,9 +19,6 @@ public class TransactionHistoryServiceImp extends BaseServiceImp<TransactionHist
 	@Autowired
 	TransactionHistoryRepository txnHisRepo;
 	
-	/**
-	 * @return JpaRepository<TransactionHistory, Long> transaction history repository
-	 */
 	@Override
 	public JpaRepository<TransactionHistory, Long> getRepo() {
 		return txnHisRepo;

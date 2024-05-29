@@ -21,6 +21,10 @@ import com.rac.banking.system.data.TransactionReq;
 import com.rac.banking.system.service.AccountService;
 import com.rac.banking.system.service.TransactionHistoryService;
 
+/**
+ * Controller class for handling transaction-related HTTP requests.
+ * Extends {@link BaseController} to inherit common functionality, 
+ */
 @RestController
 @RequestMapping("/txn")
 public class TransactionController extends BaseController {

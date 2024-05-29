@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Transaction Request Details.
+ */
 public class TransactionReq extends BaseReq{
 	/** Receiver Account. */
 	@JsonProperty("toAcc")

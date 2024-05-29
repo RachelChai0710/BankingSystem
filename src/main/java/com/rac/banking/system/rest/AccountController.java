@@ -26,6 +26,10 @@ import com.rac.banking.system.service.AccountService;
 import com.rac.banking.system.service.TransactionHistoryService;
 import com.rac.banking.system.service.imp.AccountServiceImp;
 
+/**
+ * Controller class for handling account-related HTTP requests.
+ * Extends {@link BaseController} to inherit common functionality, 
+ */
 @RestController
 @RequestMapping("/acc")
 public class AccountController extends BaseController {	

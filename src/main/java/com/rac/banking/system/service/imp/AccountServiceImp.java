@@ -39,13 +39,11 @@ public class AccountServiceImp extends BaseServiceImp<Account> implements Accoun
 	/** Transaction Type - Withdraw */
 	public final static String TXN_T_W = "WITHDRAW";
 	
+	/** Max retry count */
 	private final static int MAX_RETRY = 0;
 
 	private Logger logger = LoggerFactory.getLogger(AccountServiceImp.class);
 
-	/**
-	 * @return JpaRepository<Account, Long> account repository
-	 */
 	@Override
 	public JpaRepository<Account, Long> getRepo() {
 		return accRepo;
@@ -126,12 +124,26 @@ public class AccountServiceImp extends BaseServiceImp<Account> implements Accoun
 		txnSrv.add(new TransactionHistory(accId, srcAcc, amount, txnT));
 	}
 	
+	/**
+	 * Calculate the balance for the respective account
+	 * for deposit transaction
+	 * @param accId
+	 * @param amount
+	 * @return updated account
+	 */
 	protected Account addBalance(long accId, BigDecimal amount) {
 		Account acc = this.findById((long)accId).orElseThrow(()-> new NoSuchElementException("Cannot find account with id:" + accId));
 		acc.setBalance(acc.getBalance().add(amount));
 		return acc;
 	}
 	
+	/**
+	 * Calculate the balance for the respective account
+	 * for withdrawal transaction
+	 * @param accId
+	 * @param amount
+	 * @return updated account
+	 */
 	protected Account subtractBalance(long accId, BigDecimal amount) {
 		Account acc = this.findById((long)accId).orElseThrow(()-> new NoSuchElementException("Cannot find account with id:" + accId));
 		
