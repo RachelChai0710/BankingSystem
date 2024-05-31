@@ -206,6 +206,38 @@
 			"response": []
 		},
 		{
+			"name": "Get Transaction History by Account ID Pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/txn/history/:accId/:pageNo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"txn",
+						"history",
+						":accId",
+						":pageNo"
+					],
+					"variable": [
+						{
+							"key": "accId",
+							"value": "1"
+						},
+						{
+							"key": "pageNo",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get Transaction History by Account ID",
 			"request": {
 				"method": "GET",
@@ -239,7 +271,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"amount\": 20.00\r\n}\r\n",
+					"raw": "{\r\n    \"amount\": 1000.00\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -261,7 +293,7 @@
 					"variable": [
 						{
 							"key": "accId",
-							"value": "5",
+							"value": "1",
 							"description": "Account ID"
 						}
 					]
@@ -313,7 +345,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"toAcc\":2,\r\n    \"amount\": 10.00\r\n}",
+					"raw": "{\r\n    \"toAcc\":2,\r\n    \"amount\": 100.00\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

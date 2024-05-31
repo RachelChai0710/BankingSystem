@@ -5,6 +5,7 @@ import java.util.NoSuchElementException;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
@@ -57,6 +58,17 @@ public class TransactionController extends BaseController {
 			return getRes("Cannot find account with id:" + accId, HttpStatus.NOT_FOUND, true);
 		}
 		return getRes(txnList, HttpStatus.OK, false);
+	}
+	
+	/**
+	 * Handles HTTP GET request to retrieve account's transaction history by account ID.
+	 * @param id The ID of the account to retrieve.
+	 * @return ResponseEntity containing the page of transaction histories or an error message
+	 * if not found.
+	 */
+	@GetMapping("/history/{accId}/{pageNo}")
+	public ResponseEntity<Object> getTxnHByIdPage(@PathVariable("accId") int accId, @PathVariable("pageNo") int pageNo){
+		return getRes(txnSrv.findAllByAccIdP(accId, pageNo), HttpStatus.OK, false);
 	}
 	
 	/**
